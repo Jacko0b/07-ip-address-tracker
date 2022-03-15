@@ -152,6 +152,17 @@ main .hero div .label {
   color: #969696;
 }
 
+#map {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 90%;
+  background-color: red;
+}
+
 .attribution {
   position: fixed;
   bottom: 5px;
