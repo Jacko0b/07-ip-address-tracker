@@ -32,6 +32,11 @@ body {
   background-image: url(./images/pattern-bg.png);
   background-position: top;
   background-repeat: no-repeat;
+  background-size: auto 14rem;
+}
+
+.hidden {
+  display: none;
 }
 
 main {
@@ -107,6 +112,7 @@ main .ip-field button:hover {
 }
 
 main .hero {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -114,17 +120,68 @@ main .hero {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
   background-color: white;
-  border-radius: 2rem;
+  border: 1px solid red;
+  border-radius: 1rem;
 }
 
-main .hero p {
+main .hero div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: .25rem;
   font-weight: 700;
 }
 
-main .hero .label {
+main .hero div .label {
   font-size: .5rem;
+  letter-spacing: .08rem;
   text-transform: uppercase;
   color: #969696;
+}
+
+@media screen and (min-width: 34rem) {
+  main h1 {
+    font-size: 1.5rem;
+  }
+  main .hero {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: Clamp(64rem, 50%, 38rem);
+    margin-top: .8rem;
+    padding: 0;
+  }
+  main .hero div {
+    padding: 1rem;
+  }
+  main .hero .desktop-spacer {
+    display: block;
+    padding: 0;
+    width: 1px;
+    height: 80%;
+    background-color: #969696;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  body {
+    background-size: 100% 14rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */
