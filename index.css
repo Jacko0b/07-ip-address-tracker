@@ -62,6 +62,9 @@ main .ip-field {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 2.5rem;
   border-radius: 1rem;
 }
@@ -72,17 +75,56 @@ main .ip-field * {
 }
 
 main .ip-field input {
-  width: 90%;
+  width: Min(31rem, 100%);
   height: 100%;
   border-radius: .7rem 0 0 .7rem;
   padding-left: 1rem;
   font-size: Min(4vw, 1rem);
 }
 
+main .ip-field input:hover {
+  cursor: pointer;
+}
+
+main .ip-field input:focus {
+  outline: 0;
+}
+
 main .ip-field button {
-  width: 10%;
+  width: 3rem;
   height: 100%;
   background-color: black;
   border-radius: 0 .7rem .7rem 0;
+}
+
+main .ip-field button img {
+  height: 30%;
+}
+
+main .ip-field button:hover {
+  cursor: pointer;
+  background-color: #2b2b2b;
+}
+
+main .hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  border-radius: 2rem;
+}
+
+main .hero p {
+  font-weight: 700;
+}
+
+main .hero .label {
+  font-size: .5rem;
+  text-transform: uppercase;
+  color: #969696;
 }
 /*# sourceMappingURL=index.css.map */
