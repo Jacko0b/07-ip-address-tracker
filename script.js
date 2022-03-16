@@ -1,18 +1,24 @@
-let getIpData = async(ip) =>{
-    // const defaultIp = '188.146.102.45';
-    let ipAddressTxt = document.querySelector('#ip-address');
-    let locationTxt = document.querySelector('#location');
-    let timezoneTxt = document.querySelector('#timezone');
-    let ispTxt = document.querySelector('#isp');
+const defaultIp = '188.146.102.45';
+let ipAddressTxt = document.querySelector('#ip-address');
+let locationTxt = document.querySelector('#location');
+let timezoneTxt = document.querySelector('#timezone');
+let ispTxt = document.querySelector('#isp');
 
-    const response = await fetch(`http://ip-api.com/json/${ip}`);
-    const data = await response.json();
-
-    console.log(ipAddressTxt.innerHTML);
-
+let getIpData = async(ip = defaultIp) =>{
+        const response = await fetch(`http://ip-api.com/json/${ip}`);
+        const data= await response.json();
+        console.log(data);
+    
+        ipAddressTxt.innerHTML=data.query;
+        locationTxt.innerHTML = `${data.city}, ${data.region} ${data.zip}`;
+        const timezoneResponse = await fetch(`http://worldtimeapi.org/api/timezone/${data.timezone}`);
+        const timezoneData = await timezoneResponse.json();
+        timezoneTxt.innerHTML = `UTC ${timezoneData.utc_offset}`;
+        ispTxt.innerHTML = data.isp;
 }
+
 getIpData();
-console.log(document.querySelector('#location').id);
+
 function initMap(){
     const svgMarker = {
         path: "M39.263 7.673c8.897 8.812 8.966 23.168.153 32.065l-.153.153L23 56 6.737 39.89C-2.16 31.079-2.23 16.723 6.584 7.826l.153-.152c9.007-8.922 23.52-8.922 32.526 0zM23 14.435c-5.211 0-9.436 4.185-9.436 9.347S17.79 33.128 23 33.128s9.436-4.184 9.436-9.346S28.21 14.435 23 14.435z",
