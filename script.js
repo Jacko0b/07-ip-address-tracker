@@ -1,27 +1,32 @@
-const defaultIp = 'google.com';
 let ipAddressTxt = document.querySelector('#ip-address');
 let locationTxt = document.querySelector('#location');
 let timezoneTxt = document.querySelector('#timezone');
 let ispTxt = document.querySelector('#isp');
 
-let getIpData = async(ip = defaultIp) =>{
+let getIpData = async(ip = '') =>{
         const response = await fetch(`http://ip-api.com/json/${ip}`);
         const data= await response.json();
         console.log(data);
     
-        ipAddressTxt.innerHTML=data.query;
+        if(data.status !== 'fail'){
+        ipAddressTxt.innerHTML = data.query;
         locationTxt.innerHTML = `${data.city}, ${data.region} ${data.zip}`;
         ispTxt.innerHTML = data.isp;
         const timezoneResponse = await fetch(`http://worldtimeapi.org/api/timezone/${data.timezone}`);
         const timezoneData = await timezoneResponse.json();
         timezoneTxt.innerHTML = `UTC ${timezoneData.utc_offset}`;
-        
+        }else{
+            console.log(
+                `failed to load "ip:${data.query}" 
+                status:${data.status}, ${data.message}`);
+        }
 }
+getIpData('');
 
-// getIpData('2001:4860:4860::8844');
+
 
 // setTimeout(() => {
-//     getIpData('74.6.231.21')
+//     getIpData('')
 // }, 3000);
 function initMap(){
     const svgMarker = {
