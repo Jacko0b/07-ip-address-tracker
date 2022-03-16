@@ -5,11 +5,11 @@ let ispTxt = document.querySelector('#isp');
 const ipInput = document.querySelector('#ip-input');
 const searchBtn = document.querySelector('#searchBtn');
 let getIpData = async(ip = '') =>{
-        const response = await fetch(`https://ip-api.com/json/${ip}`);
+        const response = await fetch(`http://ip-api.com/json/${ip}`);
         const data= await response.json();
     
         if(data.status !== 'fail'){
-        const timezoneResponse = await fetch(`https://worldtimeapi.org/api/timezone/${data.timezone}`);
+        const timezoneResponse = await fetch(`http://worldtimeapi.org/api/timezone/${data.timezone}`);
         const timezoneData = await timezoneResponse.json();
         
         timezoneTxt.innerHTML = `UTC ${timezoneData.utc_offset}`;
