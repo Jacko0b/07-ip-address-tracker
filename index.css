@@ -143,6 +143,7 @@ main .hero div {
   height: 100%;
   gap: .25rem;
   font-weight: 700;
+  word-break: break-all;
 }
 
 main .hero div .label {
@@ -198,6 +199,7 @@ main .hero div .label {
         -ms-flex-align: start;
             align-items: flex-start;
     width: 60%;
+    max-width: 25%;
     font-weight: 500;
   }
   main .hero div .label {
