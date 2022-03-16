@@ -55,7 +55,7 @@ getIpData('');
 
 let searchBtnFun = (e) =>{
     e.preventDefault();
-    getIpData(ipInput.value);
+    getIpData(ipInput.value); 
 }
 searchBtn.addEventListener("click", searchBtnFun);
 
