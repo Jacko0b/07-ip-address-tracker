@@ -159,8 +159,7 @@ main .hero div .label {
   right: 0;
   z-index: -1;
   width: 100vw;
-  height: 90%;
-  background-color: red;
+  height: calc(100vh - 13rem);
 }
 
 .attribution {
